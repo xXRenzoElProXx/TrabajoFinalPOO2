@@ -1,4 +1,4 @@
-# TrabajoFinalPOO2
+# TrabajoFinalDBP
 Proyecto Final Desarrollo Basado en Plataformas
 Integrantes: 
 * Crisanto Crisanto, Renzo
