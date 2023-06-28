@@ -1,6 +1,6 @@
 # TrabajoFinalPOO2
 Proyecto Final Desarrollo Basado en Plataformas
 Integrantes: 
-* Crisanto, Renzo Enrique
-* Grados, Andrea Hilda
-* Nuñez, Alexis Martin
+* Crisanto Crisanto, Renzo
+* Grados Flores, Andrea
+* Nuñez Calderón, Alexis
