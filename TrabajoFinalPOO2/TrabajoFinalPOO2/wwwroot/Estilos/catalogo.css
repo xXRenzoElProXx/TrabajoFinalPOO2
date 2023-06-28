@@ -1,0 +1,94 @@
+.contenido {
+    max-width: 1200px;
+    width: 100%;
+    margin: 40px auto;
+    display: flex;
+}
+
+.mostrador {
+    width: 100%;
+    transition: .5s ease;
+}
+
+#desayuno .row {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px auto 30px auto;
+}
+
+#almuerzos .row {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px auto 30px auto;
+}
+
+#cenas .row {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px auto 30px auto;
+}
+
+#snacks .row {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px auto 30px auto;
+}
+
+#utiles .row {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px auto 30px auto;
+}
+
+.mostrador .fila .item {
+    padding: 20px;
+    height: 300px;
+    border-radius: 5px;
+    transition: .3s;
+    text-align: center;
+    margin: auto;
+    cursor: pointer;
+}
+
+.mostrador .fila .item:hover {
+    background-color: gray;
+}
+
+.mostrador .fila .item img {
+    margin: 10px 0;
+
+    width: 140px;
+    height: 140px;
+    max-width: 300px;
+    max-height: 300px;
+    min-width: 140px;
+    min-width: 140px;
+}
+
+.mostrador .fila .item .description {
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.mostrador .fila .item .precio {
+    color: black;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.seleccion {
+    transition: .5s ease;
+    opacity: 0;
+    width: 0%;
+    border: 1px solid #ccc;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+
+main h3 {
+    font-size: 50px;
+    color: black;
+}

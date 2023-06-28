@@ -1,0 +1,163 @@
+.logo_footer {
+  width: 110px;
+  height: 110px;
+  filter: contrast(185%);
+  -webkit-filter: contrast(185%);
+  -moz-filter: contrast(185%);
+  display: block;
+  margin: auto;
+  border-radius: 100%;
+}
+
+body {
+  padding-top: 3rem;
+  color: black;
+  margin: 0px;
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+  background-color: lightgray;
+  z-index: 1;
+}
+
+footer {
+  width: 100%;
+  text-align: left;
+  font: bold 16px sans-serif;
+}
+
+nav ul li a {
+  padding: 5px 10px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin: auto 10px;
+}
+
+li a.active,
+li a:hover {
+  background: #1630BE;
+  transition: 0.5s;
+}
+
+#last.active,
+#last:hover {
+  background: none;
+}
+
+#btn.active,
+#btn:hover {
+  background: none;
+}
+
+#des.active,
+#des:hover,
+#alm.active,
+#alm:hover,
+#cen.active,
+#cen:hover,
+#sna.active,
+#sna:hover,
+#util.active,
+#util:hover {
+  background: none;
+}
+
+#btnLeft:hover {
+  background-image: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+  outline-color: #a02d76;
+}
+
+#twitter:hover {
+  background-color: #1da1f2;
+  outline-color: #1da1f2;
+}
+
+#linkedin:hover {
+  background-color: #0077b5;
+  outline-color: #0077b5;
+}
+
+#github:hover {
+  background-color: #2ea44f;
+  outline-color: #2ea44f;
+}
+
+.footer-icons a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  background-color: #33383b;
+  border-radius: 3px;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 35px;
+  margin-right: 3px;
+  margin-bottom: 5px;
+}
+
+.button {
+  padding: 3px 3px;
+  border: 2px solid #fff;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.button:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.button a {
+  text-decoration: none;
+}
+
+main section:nth-child(2n) {
+  background-color: white;
+  padding: 20px 20px 20px 20px;
+  border-radius: 10px;
+  border: 3px solid orange;
+  background: #00B4DB;
+  background: -webkit-linear-gradient(to bottom, #0f9dcc, #00B4DB);
+  background: linear-gradient(to bottom, #189fcc, #00B4DB);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+main section:nth-child(2n) textarea {
+  resize: none;
+}
+
+main section:nth-child(2n) textarea:focus {
+  border: 3px solid black;
+}
+
+main section:nth-child(2n) input:focus {
+  border: 3px solid black;
+}
+
+.responsive {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: 'Times New Roman', Times, serif;
+}

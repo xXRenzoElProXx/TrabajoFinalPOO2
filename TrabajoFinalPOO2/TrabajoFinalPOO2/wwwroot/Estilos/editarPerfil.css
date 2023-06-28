@@ -1,0 +1,86 @@
+body {
+  padding-top: 3rem;
+  color: black;
+  margin: 0px;
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+  background-color: lightgray;
+}
+
+footer {
+  width: 100%;
+  text-align: left;
+  font: bold 16px sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.jumbotron-flat {
+	background-color: solid #4db8ff;
+	height: 100%;
+	border: 1px solid #4DB8FF;
+	background: white;
+	width: 100%;
+	text-align: center;
+	overflow: auto;
+}
+
+.paymentAmt {
+	font-size: 80px;
+}
+
+.centered {
+	text-align: center;
+}
+
+.title {
+	padding-top: 15px;
+}
+form .input-field {
+	position: relative;
+	height: 55px;
+	width: 100%;
+}
+
+.input-field input {
+	height: 100%;
+	width: 100%;
+	outline: none;
+	border: none;
+	border-radius: 8px;
+	padding: 0 15px;
+	border: 1px solid #d1d1d1;
+}
+
+.invalid input {
+	border-color: #d93025;
+}
+
+.input-field .show-hide {
+	position: absolute;
+	right: 13px;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 18px;
+	color: #919191;
+	cursor: pointer;
+	padding: 3px;
+}
