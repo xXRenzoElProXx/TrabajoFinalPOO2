@@ -1,3 +1,6 @@
 # TrabajoFinalPOO2
-Proyecto Tienda Virtual
-Hola
+Proyecto Final Desarrollo Basado en Plataformas
+Integrantes: 
+* Crisanto, Renzo Enrique
+* Grados, Andrea Hilda
+* Nuñez, Alexis Martin
