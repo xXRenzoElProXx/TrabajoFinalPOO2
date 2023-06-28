@@ -1,0 +1,196 @@
+﻿<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros</title>
+    <link rel="stylesheet" href="~/Estilos/style.css">
+</head>
+
+<body>
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle" style="display:none">
+        <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
+                data-bs-toggle="dropdown">
+            <i class="bi bi-sun-fill my-1 theme-icon-active" width="1em" height="1em" id="add"></i>
+            <i class="bi bi-moon-fill my-1 theme-icon-active" width="1em" height="1em" style="display:none" id="remove"></i>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+            <li>
+                <button type="button" class="dropdown-item d-flex align-items-center" onclick="Removefav()" id="item2">
+                    <i class="bi bi-sun-fill me-2 opacity-50 theme-icon" width="1em" height="1em"></i>
+                    Light
+                </button>
+            </li>
+            <li>
+                <button type="button" class="dropdown-item d-flex align-items-center" onclick="FavId()" id="item1">
+                    <i class="bi bi-moon-fill me-2 opacity-50 theme-icon" width="1em" height="1em"></i>
+                    Dark
+                </button>
+            </li>
+        </ul>
+    </div>
+
+    <header>
+        <nav id="nav" style="background-color: seagreen;" class="navbar navbar-expand-lg navbar-light fixed-top"
+             aria-label="Offcanvas navbar large">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-controller="TrabajoFinal" asp-action="Index">
+                    <img style="filter: contrast(185%);
+          -webkit-filter: contrast(185%);
+          -moz-filter: contrast(185%);" src="~/Imagenes/logo.ico" width="40" height="40">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2"
+                        aria-controls="offcanvasNavbar2" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar2"
+                     aria-labelledby="offcanvasNavbar2Label">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbar2Label">USIL - MARKETPLUS</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" asp-controller="TrabajoFinal" asp-action="Index"
+                                   style="color: white; text-decoration: none; font-size: 17px;">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" asp-controller="TrabajoFinal" asp-action="Contactanos"
+                                   style="color: white; text-decoration: none ; font-size: 17px;">Contáctanos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold active" asp-controller="TrabajoFinal" asp-action="Nosotros"
+                                   style="color: white; text-decoration: none ; font-size: 17px;">Nosotros</a>
+                            </li>
+                            <li class="nav-item dropdown d-flex mt-3 mt-lg-0">
+                                <button style="background-color: skyblue;" class="button dropdown-toggle btn btn-sm fw-bold"
+                                        id="form-open" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a style="color: black; font-size: 20px" id="btn">Entrar</a>
+                                </button>
+
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a id="entrar2" class="dropdown-item fw-bold" style="font-size: 17px" asp-controller="Inicio" asp-action="IniciarSesion">Login</a>
+                                    </li>
+                                    <li>
+                                        <a id="entrar3" class="dropdown-item fw-bold" style="font-size: 17px"
+                                           asp-controller="Access" asp-action="Login">Admin</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="my-3 container">
+        <div class="row" data-aos="fade-up">
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 my-3 my-md-3 my-xl-5"
+                 style="display: grid; place-content: center;">
+                <h3 class="text-center fw-bold">¿Quiénes Somos?</h3>
+                <p class="text-center h6">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta, cupiditate
+                    porro? Consequatur doloribus tempore nam laudantium obcaecati id iusto ducimus ad fuga fugiat quo
+                    similique hic cumque vitae enim, facilis sint provident aut non. Rerum cupiditate ipsum natus
+                    adipisci aliquam, dolorum et dolor accusamus repellat, impedit ducimus! Consectetur, cupiditate
+                    voluptatum?
+                </p>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6"
+                 style="display: flex; align-items: center; justify-content: center;">
+                <img class="img-fluid" src="/Imagenes/450_1000.jpg"
+                     style="border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 15px;" width="500cm" height="300cm">
+            </div>
+        </div>
+
+        <div class="row my-3" data-aos="fade-up">
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 my-3">
+                <img class="img-fluid" src="/Imagenes/depositphotos_243705590-stock-photo-group-of-people-putting-hands.jpg"
+                     width="500cm" height="300cm"
+                     style="display: flex; align-items: center; justify-content: center; border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 15px;">
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6" style="display: grid; place-content: center;">
+                <h3 class="text-center fw-bold">Nuestra Historia</h3>
+                <p class="text-center d-flex h6">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quae
+                    beatae cum ad obcaecati mollitia incidunt voluptas unde molestias illum blanditiis reprehenderit
+                    molestiae dolorem expedita accusamus, eius dolores laudantium, maiores nisi. Voluptatem eaque ullam
+                    assumenda quae at perferendis esse commodi. Nihil ipsam adipisci atque illum et similique numquam,
+                    architecto nam!
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer" class="text-center text-lg-start text-white" style="background: #29618f;">
+        <section class=" d-flex justify-content-between p-2" style="background-color: #6351ce;" id="footer_section">
+            <div class="me-2" style="margin: auto 17px;">
+                <span>Conéctese con nosotros en nuestras redes sociales:</span>
+            </div>
+
+            <div class="footer-icons">
+                <a id="btnLeft" target="_blank" href="https://www.instagram.com" class="text-white me-3"
+                   style="text-decoration: none">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a id="twitter" target="_blank" href="https://www.twitter.com" class="text-white me-3"
+                   style="text-decoration: none">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a id="linkedin" target="_blank" href="https://www.linkedin.com" class="text-white me-3"
+                   style="text-decoration: none">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a id="github" target="_blank" href="https://www.github.com" class="text-white me-3"
+                   style="text-decoration: none">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+        </section>
+        <section>
+            <div class="container text-center text-md-start mt-4">
+                <div class="row mt-3">
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-3">
+                        <h6 class="text-uppercase fw-bold text-center">USIL - MarketPlus</h6>
+                        <img class="logo_footer" src="/Imagenes/Logo.jpg">
+                        <hr class="mb-3 mt-0 d-inline-block mx-auto" />
+                        <p class="text-center">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate accusamus iste, provident
+                            suscipit explicabo
+                        </p>
+                    </div>
+
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-3">
+                        <h6 class="text-uppercase fw-bold text-center">Links</h6>
+                        <hr class="mb-3 mt-0 d-inline-block mx-auto" />
+                        <p>
+                            <a asp-controller="TrabajoFinal" asp-action="Index" class="text-white">Home</a>
+                        </p>
+                        <p>
+                            <a asp-controller="TrabajoFinal" asp-action="Contactanos" class="text-white">Contáctanos</a>
+                        </p>
+                        <p>
+                            <a asp-controller="TrabajoFinal" asp-action="Nosotros" class="text-white">Nosotros</a>
+                        </p>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-3">
+                        <h6 class="text-uppercase fw-bold text-center">Contacto</h6>
+                        <hr class="mb-3 mt-0 d-inline-block mx-auto" />
+                        <p><i class="fas fa-home mr-3"></i> <span> USIL - Campus 2</span></p>
+                        <p><i class="fas fa-envelope mr-3"></i> marketplus@usil.pe</p>
+                        <p><i class="fas fa-phone mr-3"></i> 939 018 357</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.2)">
+            Copyright © 2023
+        </div>
+    </footer>
+</body>
+
+</html>

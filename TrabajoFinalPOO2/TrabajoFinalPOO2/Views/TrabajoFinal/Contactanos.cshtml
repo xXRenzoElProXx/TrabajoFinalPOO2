@@ -1,0 +1,253 @@
+﻿<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contáctanos</title>
+    <link rel="stylesheet" href="~/Estilos/style.css">
+</head>
+
+<body>
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle" style="display:none">
+        <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
+                data-bs-toggle="dropdown">
+            <i class="bi bi-sun-fill my-1 theme-icon-active" width="1em" height="1em" id="add"></i>
+            <i class="bi bi-moon-fill my-1 theme-icon-active" width="1em" height="1em" style="display:none" id="remove"></i>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+            <li>
+                <button type="button" class="dropdown-item d-flex align-items-center" onclick="Removefav()" id="item2">
+                    <i class="bi bi-sun-fill me-2 opacity-50 theme-icon" width="1em" height="1em"></i>
+                    Light
+                </button>
+            </li>
+            <li>
+                <button type="button" class="dropdown-item d-flex align-items-center" onclick="FavId()" id="item1">
+                    <i class="bi bi-moon-fill me-2 opacity-50 theme-icon" width="1em" height="1em"></i>
+                    Dark
+                </button>
+            </li>
+        </ul>
+    </div>
+
+    <header>
+        <nav id="nav" style="background-color: seagreen;" class="navbar navbar-expand-lg navbar-light fixed-top"
+             aria-label="Offcanvas navbar large">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-controller="TrabajoFinal" asp-action="Index">
+                    <img style="filter: contrast(185%);
+          -webkit-filter: contrast(185%);
+          -moz-filter: contrast(185%);" src="~/Imagenes/logo.ico" width="40" height="40">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2"
+                        aria-controls="offcanvasNavbar2" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar2"
+                     aria-labelledby="offcanvasNavbar2Label">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbar2Label">USIL - MARKETPLUS</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" asp-controller="TrabajoFinal" asp-action="Index"
+                                   style="color: white; text-decoration: none; font-size: 17px;">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold active" asp-controller="TrabajoFinal" asp-action="Contactanos"
+                                   style="color: white; text-decoration: none ; font-size: 17px;">Contáctanos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" asp-controller="TrabajoFinal" asp-action="Nosotros"
+                                   style="color: white; text-decoration: none ; font-size: 17px;">Nosotros</a>
+                            </li>
+                            <li class="nav-item dropdown d-flex mt-3 mt-lg-0">
+                                <button style="background-color: skyblue;" class="button dropdown-toggle btn btn-sm fw-bold"
+                                        id="form-open" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a style="color: black; font-size: 20px" id="btn">Entrar</a>
+                                </button>
+
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a id="entrar2" class="dropdown-item fw-bold" style="font-size: 17px" asp-controller="Inicio" asp-action="IniciarSesion">Login</a>
+                                    </li>
+                                    <li>
+                                        <a id="entrar3" class="dropdown-item fw-bold" style="font-size: 17px"
+                                           asp-controller="Access" asp-action="Login">Admin</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="my-5 container">
+        <div class="row">
+            <section class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <h1 class="text-center fw-bold">Contáctanos</h1>
+                <hr>
+                <p class="text-center h5">
+                    Si deseas tener mayor información sobre nuestros productos, no dudes en
+                    contactarnos mediante este formulario y uno de nuestros asesores lo contactará a la brevedad.
+                </p>
+                <center>
+                    <img width="400cm" class="img-fluid" style="border-radius: 100%;" src="/Imagenes/Logo.jpg">
+                </center>
+                <br>
+                <h5 class="text-center">
+                    <i class="fa-brands fa-whatsapp"></i> Contáctanos vía WhatsApp <br>
+                    <a style="text-decoration: none;" target="_blank" href="https://acortar.link/bJ42Sf">
+                        +51 939 018 357
+                    </a>
+                </h5>
+                <br>
+                <h6 class="text-center"><i class="fa-regular fa-envelope"></i></i> marketplus@gmail.com</h6>
+                <br>
+                <h6 class="text-center">
+                    <i class="fa-solid fa-location-dot text-center h5"></i><br>
+                    Av. la Fontana 550, La Molina 15024. <br>La Molina, Lima - Perú
+                </h6>
+            </section>
+            <br /><br />
+            <section class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <h2 class="text-center fw-bold">Contáctate con Nosotros</h2>
+                <form action="https://formsubmit.co/recrisanto26@gmail.com" method="POST" class="needs-validation"
+                      novalidate>
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label h5">Nombre</label>
+                        <input name="Nombre" type="text" class="form-control" id="nombre" aria-describedby="nombreHelp"
+                               required autocomplete="off" placeholder="Ingrese su Nombre">
+                        <div class="valid-feedback"></div>
+                        <div class="invalid-feedback fw-bold">
+                            Por favor, ingrese su nombre.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="apellido" class="form-label h5">Apellido</label>
+                        <input name="Apellido" type="text" class="form-control" id="apellido"
+                               aria-describedby="apellidoHelp" required autocomplete="off"
+                               placeholder="Ingrese su Apellido">
+                        <div class="valid-feedback"></div>
+                        <div class="invalid-feedback fw-bold">
+                            Por favor, ingrese su apellido.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label h5">Correo Electrónico</label>
+                        <input name="Correo Electrónico" type="email" class="form-control" id="email"
+                               aria-describedby="emailHelp" required autocomplete="off" placeholder="Ingrese su Email">
+                        <div class="valid-feedback"></div>
+                        <div class="invalid-feedback fw-bold">
+                            Por favor, ingrese su email.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label h5">Teléfono de Contacto</label>
+                        <input type="tel" class="form-control" id="telefono" aria-describedby="telefonoHelp"
+                               name="Teléfono de Contacto" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
+                               title="Un número de teléfono válido consta de 9 dígitos, separados de 3 en 3 dígitos por un guión (-)."
+                               required autocomplete="off" placeholder="Ingrese su Teléfono de Contacto">
+                        <div class="valid-feedback"></div>
+                        <div class="invalid-feedback fw-bold">
+                            Por favor, ingrese su teléfono de contacto.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="textarea" class="form-label h5">Comentario</label>
+                        <textarea name="Comentario" class="form-control" id="textarea" rows="5" required
+                                  autocomplete="off" placeholder="Ingresea algún Comentario, Duda o Queja"></textarea>
+                        <div class="valid-feedback"></div>
+                        <div class="invalid-feedback fw-bold">
+                            Por favor, deje algún comentario.
+                        </div>
+                    </div>
+
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_subject" value="Alguien se quiere Contactar Contigo">
+                    <input type="hidden" name="_cc"
+                           value="renzocrisanto2021@gmail.com,andrea.gradosf@gmail.com,alexis.mnc18@gmail.com">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://enriquerenzo-001-site1.atempurl.com/TrabajoFinal/Contactanos">
+
+                    <center><button type="submit" class="btn btn-success fw-bold">Enviar</button></center>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer id="footer" class="text-center text-lg-start text-white" style="background: #29618f;">
+        <section class=" d-flex justify-content-between p-2" style="background-color: #6351ce;" id="footer_section">
+            <div class="me-2" style="margin: auto 17px;">
+                <span>Conéctese con nosotros en nuestras redes sociales:</span>
+            </div>
+
+            <div class="footer-icons">
+                <a id="btnLeft" target="_blank" href="https://www.instagram.com" class="text-white me-3"
+                   style="text-decoration: none">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a id="twitter" target="_blank" href="https://www.twitter.com" class="text-white me-3"
+                   style="text-decoration: none">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a id="linkedin" target="_blank" href="https://www.linkedin.com" class="text-white me-3"
+                   style="text-decoration: none">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a id="github" target="_blank" href="https://www.github.com" class="text-white me-3"
+                   style="text-decoration: none">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+        </section>
+        <section>
+            <div class="container text-center text-md-start mt-4">
+                <div class="row mt-3">
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-3">
+                        <h6 class="text-uppercase fw-bold text-center">USIL - MarketPlus</h6>
+                        <img class="logo_footer" src="/Imagenes/Logo.jpg">
+                        <hr class="mb-3 mt-0 d-inline-block mx-auto" />
+                        <p class="text-center">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate accusamus iste, provident
+                            suscipit explicabo
+                        </p>
+                    </div>
+
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-3">
+                        <h6 class="text-uppercase fw-bold text-center">Links</h6>
+                        <hr class="mb-3 mt-0 d-inline-block mx-auto" />
+                        <p>
+                            <a asp-controller="TrabajoFinal" asp-action="Index" class="text-white">Home</a>
+                        </p>
+                        <p>
+                            <a asp-controller="TrabajoFinal" asp-action="Contactanos" class="text-white">Contáctanos</a>
+                        </p>
+                        <p>
+                            <a asp-controller="TrabajoFinal" asp-action="Nosotros" class="text-white">Nosotros</a>
+                        </p>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-3">
+                        <h6 class="text-uppercase fw-bold text-center">Contacto</h6>
+                        <hr class="mb-3 mt-0 d-inline-block mx-auto" />
+                        <p><i class="fas fa-home mr-3"></i> <span> USIL - Campus 2</span></p>
+                        <p><i class="fas fa-envelope mr-3"></i> marketplus@usil.pe</p>
+                        <p><i class="fas fa-phone mr-3"></i> 939 018 357</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.2)">
+            Copyright © 2023
+        </div>
+    </footer>
+
+    <script src="~/Scripts/contacto.js"></script>
+</body>
+
+</html>

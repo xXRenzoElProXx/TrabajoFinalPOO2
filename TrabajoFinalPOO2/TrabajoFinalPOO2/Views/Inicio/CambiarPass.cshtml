@@ -1,0 +1,93 @@
+﻿@model TrabajoFinal.Models.Usuario
+
+<html>
+<head>
+    <meta name="viewport" content="width, initial-scale=1.0" />
+    <title>Cambiar Contraseña</title>
+    <link rel="stylesheet" href="~/Estilos/editarPerfil.css">
+    <link rel="stylesheet" href="~/lib/fonts/iconic/css/material-design-iconic-font.css" />
+    <link rel="stylesheet" href="~/lib/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <style>
+        form .input-field {
+            position: relative;
+            height: 55px;
+            width: 100%;
+        }
+
+        .input-field input {
+            height: 100%;
+            width: 100%;
+            outline: none;
+            border: none;
+            border-radius: 8px;
+            padding: 0 15px;
+            border: 1px solid #d1d1d1;
+        }
+        .input-field .show-hide {
+            position: absolute;
+            right: 13px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #919191;
+            cursor: pointer;
+            padding: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="margin-top: 10px">
+        <h1 class="text-center fw-bold">Cambiar Contraseña</h1>
+        <hr>
+        <div class="row">
+            <div class="personal-info">
+                <form class="form-horizontal" role="form" asp-controller="Inicio" asp-action="cambiarPassP" method="post">
+                    <div class="mb-3">
+                        <input type="hidden" asp-for="IdUsuario" class="form-control form-control-sm" required />
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" asp-for="Correo" class="form-control form-control-sm" required disabled />
+                    </div>
+                    <div class="field input-field mb-3">
+                        <input type="password" asp-for="Clave" class="form-control form-control-sm" required placeholder="Ingrese la Nueva Clave"/>
+                        <i class="bx bx-hide show-hide"></i>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-8">
+                            <button type="submit" class="btn btn-success" id="btn">Cambiar Contraseña</button>
+                            <span></span>
+                            <a class="btn btn-default" asp-action="Catalogo" asp-controller="Home">Cancelar</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <hr>
+    </div>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        const eyeIcons = document.querySelectorAll(".show-hide");
+
+        eyeIcons.forEach((eyeIcon) => {
+            eyeIcon.addEventListener("click", () => {
+                const pInput = eyeIcon.parentElement.querySelector("input");
+                if (pInput.type === "password") {
+                    eyeIcon.classList.replace("bx-hide", "bx-show");
+                    return (pInput.type = "text");
+                }
+                eyeIcon.classList.replace("bx-show", "bx-hide");
+                pInput.type = "password";
+            });
+        });
+
+        const btn = document.getElementById("btn")
+
+        btn.addEventListener("click", () => {
+            swal("Excelente", "Has Cambiado tu Contraseña", "success");
+        })
+    </script>
+</body>
+</html>

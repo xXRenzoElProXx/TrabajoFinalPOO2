@@ -1,0 +1,84 @@
+﻿@model VMLogin;
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login Administrador</title>
+    <link rel="stylesheet" href="~/Estilos/util.css" />
+    <link rel="stylesheet" href="~/lib/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/lib/fonts/iconic/css/material-design-iconic-font.css" />
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <style>
+        input::placeholder {
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="limiter">
+        <div class="container-login100" style="background-image: url('/Imagenes/bg-01.jpg');">
+            <div class="wrap-login100">
+                <form class="login100-form validate-form" asp-controller="Access" asp-action="Login" method="post">
+                    <span class="login100-form-logo">
+                        <img style="height: 100px; width: 100px; border-radius: 30px;"
+                             src="/Imagenes/desarrollador.png">
+                    </span>
+                    <span class="login100-form-title p-b-34 p-t-27 fw-bold">Login - Administrador</span>
+                    <div class="input-field mb-3">
+                        <input type="text" placeholder="Ingrese el Usuario" id="usuario" asp-for="Email">
+                        <br />
+                        @Html.ValidationMessageFor(d=>d.Email,null,new { style="color:red"})
+                        <br />
+                    </div>
+                    <br />
+                    <div class="input-field mb-4">
+                        <input type="password" placeholder="Ingrese la Contraseña" id="password" asp-for="PassWord" />
+                        <i class="bx bx-hide show-hide"></i>
+                        <br />
+                        @Html.ValidationMessageFor(d=>d.PassWord,null,new { style="color:red"})
+                        <br />
+                    </div>
+                    <div class="form-check mb-3">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" asp-for="KeepLoggedIn">
+                        <label class="form-check-label text-white" for="exampleCheck1">Recuérdame</label>
+                    </div>
+                    <div class="container-login100-form-btn">
+                        <button class="fw-bold login100-form-btn" id="validar">
+                            Iniciar Sesión
+                        </button>
+                    </div>
+                    @if (ViewData["ValidateMessage"] != null)
+                    {
+                        <br />
+                        <br />
+                        <label class="text-center" style="color:white; font-weight:bold"><i class="bi bi-exclamation-triangle"></i> @ViewData["ValidateMessage"] <i class="bi bi-exclamation-triangle"></i></label>
+                    }
+                </form>
+            </div>
+        </div>
+        <a style="text-decoration: none" asp-action="Index" asp-controller="TrabajoFinal" class="btn-flotante">Volver al Inicio</a>
+    </div>
+
+    <div id="dropDownSelect1"></div>
+
+    <script src="~/Scripts/admin.js"></script>
+    <script>
+        const eyeIcons = document.querySelectorAll(".show-hide");
+
+        eyeIcons.forEach((eyeIcon) => {
+            eyeIcon.addEventListener("click", () => {
+                const pInput = eyeIcon.parentElement.querySelector("input");
+                if (pInput.type === "password") {
+                    eyeIcon.classList.replace("bx-hide", "bx-show");
+                    return (pInput.type = "text");
+                }
+                eyeIcon.classList.replace("bx-show", "bx-hide");
+                pInput.type = "password";
+            });
+        });
+    </script>
+</body>
+
+</html>

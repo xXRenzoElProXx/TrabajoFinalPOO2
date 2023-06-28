@@ -1,0 +1,179 @@
+﻿@model IEnumerable<TemporalVenta>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Boleta de Pago</title>
+    <link rel="stylesheet" href="~/Estilos/pagar.css">
+    <style>
+        .btn-flotante {
+	        font-size: 22px; /* Cambiar el tamaño de la tipografia */
+	        text-transform: uppercase; /* Texto en mayusculas */
+	        font-weight: bold; /* Fuente en negrita o bold */
+	        color: #ffffff; /* Color del texto */
+	        border-radius: 5px; /* Borde del boton */
+	        letter-spacing: 2px; /* Espacio entre letras */
+	        background-color: green; /* Color de fondo */
+	        padding: 18px 30px; /* Relleno del boton */
+	        position: fixed;
+	        bottom: 40px;
+	        right: 40px;
+	        transition: all 300ms ease 0ms;
+	        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	        z-index: 99;
+        }
+
+	        .btn-flotante:hover {
+		        background-color: darkgreen; /* Color de fondo al pasar el cursor */
+		        box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
+		        transform: translateY(-7px);
+	        }
+    </style>
+</head>
+<body>
+    <center>
+        <div class="container" style="padding: 30px; background: lightblue; border: 5px solid black; border-radius: 30px; margin-top: 150px">
+            <table style="width:100%">
+                <tr>
+                    <td>
+                        <img src="~/Imagenes/Logo.jpg" style="width: 100px; height:100px; border-radius: 100%" />
+                    </td>
+                    <td style="text-align:right">
+                        <table style="margin-right:0;margin-left:auto">
+                            <tr><td><p class="title2">FECHA</p></td></tr>
+                            <tr><td><p id="fecha"></p></td></tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table style="width:100%">
+                <tr>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>
+                                    <p class="title">USIL MARKET PLUS</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="text">
+                                        Direccion: Av. la Fontana 550, La Molina 15024.
+                                   </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="text">
+                                        Correo: marketplus@usil.pe
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td style="text-align:right">
+                        <table style="margin-right:0;margin-left:auto">
+                            <tr>
+                                <td><p class="title">CLIENTE</p></td>
+                            </tr>
+                            <tr>
+                                <td><p class="text">@ViewData["nombreUsuario"]</p></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <br />
+            <table class="tbproductos" style="width:100%">
+                <thead>
+                    <tr>
+                        <th class="tbth">Producto</th>
+                        <th class="tbth" style="width:130px">Cantidad</th>
+                        <th class="tbth" style="width:130px">Precio</th>
+                        <th class="tbth" style="width:130px">Total</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="td-item"><p class="item">@item.descripcion</p></td>
+                            <td class="td-item"><p class="item">@item.cantidad u</p></td>
+                            <td class="td-item"><p class="item">S/@item.precio.00</p></td>
+                            <td style="background-color:#EDF6F9"><p class="item" id="item">S/@item.total.00</p></td>
+                        </tr>
+                    }
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td colspan="2" rowspan="3">
+                        </td>
+                        <td class="td-item">
+                            <p class="item-2">Sub Total</p>
+                        </td>
+                        <td class="item-3">
+                            <p id="subtotal"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-item">
+                            <p class="item-2">IGV</p>
+                        </td>
+                        <td class="item-3">
+                            <p id="IGV"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="item-3">
+                            <p>Total</p>
+                        </td>
+                        <td class="item-3">
+                            <p id="total"></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </center>
+    
+    <a data-bs-target="#exampleModal" data-bs-whatever="@ViewData["nombreUsuario"]" data-bs-toggle="modal" id="pagar" style="text-decoration: none" class="btn-flotante"><i class="fa-solid fa-money-bill"></i> Pagar</a>
+
+    <div class="modal modal-lg fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Ingrese con cuanto va pagar</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label fw-bold">Nombre de Usuario:</label>
+                            <input type="text" class="form-control" id="recipient-name" disabled>
+                        </div>
+                        <div class="mb-3">
+                            <label for="myInput" class="col-form-label fw-bold">Ingrese la Cantidad (en soles S/.):</label>
+                            <input type="number" min="1" class="form-control" id="myInput" placeholder="Monto" autocomplete="off" required/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="vuelto" class="col-form-label fw-bold">Vuelto:</label>
+                            <label id="vuelto" class="form-control"></label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button onclick="redireccionar()" type="button" data-bs class="btn btn-primary">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="~/Scripts/pagar.js"></script>
+</body>
+</html>

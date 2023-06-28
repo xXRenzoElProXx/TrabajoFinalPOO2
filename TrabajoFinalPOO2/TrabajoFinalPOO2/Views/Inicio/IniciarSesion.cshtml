@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicar Sesión</title>
+    <link rel="stylesheet" href="~/lib/fonts/iconic/css/material-design-iconic-font.css" />
+    <link rel="stylesheet" href="~/lib/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="~/Estilos/signup.css">
+</head>
+
+<body style="overflow-y:hidden">
+    <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <section class="containers forms">
+        <div class="form login">
+            <div class="form-content">
+                <header>Iniciar Sesión</header>
+                <form style="margin-top: 30px" asp-controller="Inicio" asp-action="IniciarSesion" method="post">
+                    <div class="field input-field">
+                        <input type="email" placeholder="Email" class="input" required name="correo">
+                    </div>
+                    <div class="field input-field">
+                        <input type="password" placeholder="Contraseña" class="password" required name="clave">
+                        <i class="bx bx-hide show-hide"></i>
+                    </div>
+                    <div class="field button-field">
+                        <button type="submit" class="ov-btn-grow-ellipse">Ingresar</button>
+                    </div>
+                    @if (ViewData["Mensaje"] != null)
+                    {
+                        <div class="form-group">
+                            <div class="alert alert-danger" role="alert">
+                                @ViewData["Mensaje"]
+                            </div>
+                        </div>
+                    }
+                    <div class="form-link">
+                        <span>¿No tienes una cuenta? <a asp-action="Registrarse" asp-controller="Inicio" class="link signup-link">Regístrate</a></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <a style="text-decoration: none" asp-action="Index" asp-controller="TrabajoFinal" class="btn-flotante">Volver al Inicio</a>
+    </section>
+
+    <script src="~/Scripts/signup.js"></script>
+    <script>
+        const eyeIcons = document.querySelectorAll(".show-hide");
+
+        eyeIcons.forEach((eyeIcon) => {
+            eyeIcon.addEventListener("click", () => {
+                const pInput = eyeIcon.parentElement.querySelector("input");
+                if (pInput.type === "password") {
+                    eyeIcon.classList.replace("bx-hide", "bx-show");
+                    return (pInput.type = "text");
+                }
+                eyeIcon.classList.replace("bx-show", "bx-hide");
+                pInput.type = "password";
+            });
+        });
+    </script>
+</body>
+
+</html>

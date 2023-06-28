@@ -1,0 +1,51 @@
+﻿@model TrabajoFinal.Models.TbUtile
+
+<html>
+    <head>
+        <meta name="viewport" content="width, initial-scale=1.0" />
+        <title>Añadir Útiles</title>
+        <link rel="stylesheet" href="~/Estilos/nuevo.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <center>
+                        <h1><u class="fw-bold">Añadir Útiles</u></h1>
+                        <form asp-controller="Producto" asp-action="GrabarU" method="post">
+                            <div class="mb-3">
+                                <label for="cod" class="form-label fw-bold">Código del Producto</label>
+                                <input type="text" asp-for="CodPro" placeholder="Ingrese Codigo" class="form-control-sm" id="cod" required/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="des" class="form-label fw-bold">Nombre del Producto</label>
+                                <input type="text" asp-for="DesPro" placeholder="Ingrese Nombre" class="form-control-sm" id="des" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="pre" class="form-label fw-bold">Precio del Producto</label>
+                                <input type="number" min="1" asp-for="PrePro" placeholder="Ingrese el Precio" class="form-control-sm" id="pre" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="stk" class="form-label fw-bold">Stock del Producto</label>
+                                <input type="number" min="1" asp-for="StkAct" placeholder="Ingrese Stock" class="form-control-sm" id="stk" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="img" class="form-label fw-bold">Imagen del Producto</label>
+                                <input type="url" asp-for="Img" placeholder="Ingrese la Url Imagen" class="form-control-sm" id="img" required />
+                            </div>
+                            <button type="submit" class="btn btn-success" id="btn">Añadir</button>
+                        </form>
+                    </center>
+                </div>
+            </div>
+        </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        var btn = document.getElementById("btn")
+
+        btn.addEventListener("click", () => {
+            swal("Correcto", "Producto Añadido", "success");
+        })
+    </script>
+    </body>
+</html>

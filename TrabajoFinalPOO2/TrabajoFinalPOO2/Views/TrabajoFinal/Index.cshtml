@@ -1,0 +1,601 @@
+﻿<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="~/Estilos/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="~/Estilos/cards.css" />
+</head>
+
+<body>
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle" style="display:none">
+        <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
+                data-bs-toggle="dropdown">
+            <i class="bi bi-sun-fill my-1 theme-icon-active" width="1em" height="1em" id="add"></i>
+            <i class="bi bi-moon-fill my-1 theme-icon-active" width="1em" height="1em" style="display:none" id="remove"></i>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+            <li>
+                <button type="button" class="dropdown-item d-flex align-items-center" onclick="Removefav()" id="item2">
+                    <i class="bi bi-sun-fill me-2 opacity-50 theme-icon" width="1em" height="1em"></i>
+                    Light
+                </button>
+            </li>
+            <li>
+                <button type="button" class="dropdown-item d-flex align-items-center" onclick="FavId()" id="item1">
+                    <i class="bi bi-moon-fill me-2 opacity-50 theme-icon" width="1em" height="1em"></i>
+                    Dark
+                </button>
+            </li>
+        </ul>
+    </div>
+
+    <header>
+        <nav id="nav" style="background-color: seagreen;" class="navbar navbar-expand-lg navbar-light fixed-top"
+             aria-label="Offcanvas navbar large">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-controller="TrabajoFinal" asp-action="Index">
+                    <img style="filter: contrast(185%);
+          -webkit-filter: contrast(185%);
+          -moz-filter: contrast(185%);" src="~/Imagenes/logo.ico" width="40" height="40">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2"
+                        aria-controls="offcanvasNavbar2" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar2"
+                     aria-labelledby="offcanvasNavbar2Label">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbar2Label">USIL - MARKETPLUS</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold active" asp-controller="TrabajoFinal" asp-action="Index"
+                                   style="color: white; text-decoration: none; font-size: 17px;">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" asp-controller="TrabajoFinal" asp-action="Contactanos"
+                                   style="color: white; text-decoration: none ; font-size: 17px;">Contáctanos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" asp-controller="TrabajoFinal" asp-action="Nosotros"
+                                   style="color: white; text-decoration: none ; font-size: 17px;">Nosotros</a>
+                            </li>
+                            <li class="nav-item dropdown d-flex mt-3 mt-lg-0">
+                                <button style="background-color: skyblue;" class="button dropdown-toggle btn btn-sm fw-bold"
+                                        id="form-open" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a style="color: black; font-size: 20px" id="btn">Entrar</a>
+                                </button>
+
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a id="entrar2" class="dropdown-item fw-bold" style="font-size: 17px" asp-controller="Inicio" asp-action="IniciarSesion">Login</a>
+                                    </li>
+                                    <li>
+                                        <a id="entrar3" class="dropdown-item fw-bold" style="font-size: 17px"
+                                           asp-controller="Access" asp-action="Login">Admin</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/Imagenes/Logo2.jpeg" class="d-block w-100" wi>
+                <div class="carousel-caption d-none d-md-block">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="/Imagenes/SuperMarket.png" class="d-block w-100">
+                <div class="carousel-caption d-none d-md-block">
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+
+        </button>
+    </div>
+
+    <main>
+        <div class="container mt-3">
+            <div class="row justify-content-center">
+                <div data-aos="fade-up">
+                    <h1 class="text-center text-uppercase fw-bold">
+                        Productos de Calidad
+                    </h1>
+                    <ul class="list-group">
+                        <li class="list-group-item" data-bs-toggle="collapse" href="#desayunos" role="button" aria-expanded="false"
+                            aria-controls="desayunos">Desayunos</li>
+                        <div class="collapse" id="desayunos">
+                            <div class="card card-body text-center text-primary" style="font-size: 20px;">
+                                Damos desayunos desde las 7:00 am hasta las 11:00 am
+                            </div>
+                        </div>
+                        <li class="list-group-item" data-bs-toggle="collapse" href="#almuerzos" role="button" aria-expanded="false"
+                            aria-controls="almuerzos">Almuerzos</li>
+                        <div class="collapse" id="almuerzos">
+                            <div class="card card-body text-center text-primary h6 h6" style="font-size: 20px;">
+                                Damos almuerzos desde las 12:00 pm hasta las 16:00 pm
+                            </div>
+                        </div>
+                        <li class="list-group-item" data-bs-toggle="collapse" href="#cenas" role="button" aria-expanded="false"
+                            aria-controls="cenas">Cenas</li>
+                        <div class="collapse" id="cenas">
+                            <div class="card card-body text-center text-primary h6" style="font-size: 20px;">
+                                Damos cenas desde las 18:00 pm hasta las 22:00 pm
+                            </div>
+                        </div>
+                        <li class="list-group-item" data-bs-toggle="collapse" href="#snacks" role="button" aria-expanded="false"
+                            aria-controls="snacks">Snacks</li>
+                        <div class="collapse" id="snacks">
+                            <div class="card card-body text-center text-primary h6" style="font-size: 20px;">
+                                Vendemos snacks de buena calidad todo el día
+                            </div>
+                        </div>
+                        <li class="list-group-item" data-bs-toggle="collapse" href="#materiales" role="button" aria-expanded="false"
+                            aria-controls="materiales">Materiales de Carrera</li>
+                        <div class="collapse" id="materiales">
+                            <div class="card card-body text-center text-primary h6" style="font-size: 20px;">
+                                Vendemos todos los materiales que usted necesita para toda carrera, desde lapiceros, lapices hasta
+                                papelógrafos
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+            <div class="row mt-5 mb-3" data-aos="fade-up">
+                <h class="fw-bold text-center">NUESTRO PERSONAL</h>
+                <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 my-4 mb-3">
+                    <div class="card0 card" data-state="#renzo">
+                        <div class="card-header">
+                            <div class="card-cover"
+                                 style="background-image: url('https://media.licdn.com/dms/image/C4D05AQGCrTk6rJnrOQ/videocover-low/0/1657036638178?e=2147483647&v=beta&t=H4YxjCLWMTJoL-Rc_6f4Ya_5oUD1QRFCtJ1BvRjaY_k')">
+                            </div>
+                            <img class="card-avatar" src="../Imagenes/persona.png" alt="avatar" />
+                            <h1 class="card-fullname">Renzo Enrique Crisanto</h1>
+                            <h2 class="card-jobtitle">Desarrollador Web</h2>
+                        </div>
+                        <div class="card-main">
+                            <div class="card-section0 is-active" id="renzo">
+                                <div class="card-content">
+                                    <div class="card-subtitle">ACERCA DE</div>
+                                    <p class="card-desc">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec justo aliquam, rhoncus arcu vel, consectetur mi. Aliquam vitae posuere.
+                                    </p>
+                                </div>
+                                <div class="card-social">
+                                    <a href="https://www.facebook.com" target="_blank">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M15.997 3.985h2.191V.169C17.81.117 16.51 0 14.996 0c-3.159 0-5.323 1.987-5.323 5.639V9H6.187v4.266h3.486V24h4.274V13.267h3.345l.531-4.266h-3.877V6.062c.001-1.233.333-2.077 2.051-2.077z" />
+                                        </svg>
+                                    </a>
+                                    <a href="https://www.twitter.com" target="_blank">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                            <path d="M512 97.248c-19.04 8.352-39.328 13.888-60.48 16.576 21.76-12.992 38.368-33.408 46.176-58.016-20.288 12.096-42.688 20.64-66.56 25.408C411.872 60.704 384.416 48 354.464 48c-58.112 0-104.896 47.168-104.896 104.992 0 8.32.704 16.32 2.432 23.936-87.264-4.256-164.48-46.08-216.352-109.792-9.056 15.712-14.368 33.696-14.368 53.056 0 36.352 18.72 68.576 46.624 87.232-16.864-.32-33.408-5.216-47.424-12.928v1.152c0 51.008 36.384 93.376 84.096 103.136-8.544 2.336-17.856 3.456-27.52 3.456-6.72 0-13.504-.384-19.872-1.792 13.6 41.568 52.192 72.128 98.08 73.12-35.712 27.936-81.056 44.768-130.144 44.768-8.608 0-16.864-.384-25.12-1.44C46.496 446.88 101.6 464 161.024 464c193.152 0 298.752-160 298.752-298.688 0-4.64-.16-9.12-.384-13.568 20.832-14.784 38.336-33.248 52.608-54.496z" />
+                                        </svg>
+                                    </a>
+                                    <a href="https://www.instagram.com" target="_blank">
+                                        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M301 256c0 24.852-20.148 45-45 45s-45-20.148-45-45 20.148-45 45-45 45 20.148 45 45zm0 0" />
+                                            <path d="M332 120H180c-33.086 0-60 26.914-60 60v152c0 33.086 26.914 60 60 60h152c33.086 0 60-26.914 60-60V180c0-33.086-26.914-60-60-60zm-76 211c-41.355 0-75-33.645-75-75s33.645-75 75-75 75 33.645 75 75-33.645 75-75 75zm86-146c-8.285 0-15-6.715-15-15s6.715-15 15-15 15 6.715 15 15-6.715 15-15 15zm0 0" />
+                                            <path d="M377 0H135C60.562 0 0 60.563 0 135v242c0 74.438 60.563 135 135 135h242c74.438 0 135-60.563 135-135V135C512 60.562 451.437 0 377 0zm45 332c0 49.625-40.375 90-90 90H180c-49.625 0-90-40.375-90-90V180c0-49.625 40.375-90 90-90h152c49.625 0 90 40.375 90 90zm0 0" />
+                                        </svg>
+                                    </a>
+                                    <a href="https://www.linkedin.com" target="_blank">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M23.994 24v-.001H24v-8.802c0-4.306-.927-7.623-5.961-7.623-2.42 0-4.044 1.328-4.707 2.587h-.07V7.976H8.489v16.023h4.97v-7.934c0-2.089.396-4.109 2.983-4.109 2.549 0 2.587 2.384 2.587 4.243V24zM.396 7.977h4.976V24H.396zM2.882 0C1.291 0 0 1.291 0 2.882s1.291 2.909 2.882 2.909 2.882-1.318 2.882-2.909A2.884 2.884 0 002.882 0z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="card-section0" id="experience0">
+                                <div class="card-content">
+                                    <div class="card-subtitle">EXPERIENCIA DE TRABAJO</div>
+                                    <div class="card-timeline">
+                                        <div class="card-item" data-year="2014">
+                                            <div class="card-item-title">
+                                                Front-end Developer at <span>JotForm</span>
+                                            </div>
+                                            <div class="card-item-desc">
+                                                Disrupt stumptown retro everyday carry unicorn.
+                                            </div>
+                                        </div>
+                                        <div class="card-item" data-year="2017">
+                                            <div class="card-item-title">
+                                                UI Developer at <span>GitHub</span>
+                                            </div>
+                                            <div class="card-item-desc">
+                                                Developed new conversion funnels and disrupt.
+                                            </div>
+                                        </div>
+                                        <div class="card-item" data-year="2020">
+                                            <div class="card-item-title">
+                                                Illustrator at <span>Google</span>
+                                            </div>
+                                            <div class="card-item-desc">
+                                                Onboarding illustrations for App.
+                                            </div>
+                                        </div>
+                                        <div class="card-item" data-year="2023">
+                                            <div class="card-item-title">
+                                                Full-Stack Developer at <span>CodePen</span>
+                                            </div>
+                                            <div class="card-item-desc">
+                                                Responsible for the encomposing brand expreience.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-section0" id="contact0">
+                                <div class="card-content">
+                                    <div class="card-subtitle">CONTACTO</div>
+                                    <div class="card-contact-wrapper">
+                                        <div class="card-contact">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                                                <circle cx="12" cy="10" r="3" />
+                                            </svg>
+                                            La Molina
+                                        </div>
+                                        <div class="card-contact">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor"
+                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                                            </svg>(+51) 939 018 357
+                                        </div>
+                                        <div class="card-contact">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                                <path d="M22 6l-10 7L2 6" />
+                                            </svg>
+                                            renzo.crisanto@usil.pe
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-buttons0">
+                                <button data-section="#renzo" class="is-active">ACERCA DE</button>
+                                <button data-section="#experience0">EXPERIENCIA</button>
+                                <button data-section="#contact0">CONTACTO</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 my-4 mb-3">
+                    <div class="card1 card" data-state="#andrea">
+                        <div class="card-header">
+                            <div class="card-cover"
+                                 style="background-image: url('https://media.licdn.com/dms/image/C4D05AQGCrTk6rJnrOQ/videocover-low/0/1657036638178?e=2147483647&v=beta&t=H4YxjCLWMTJoL-Rc_6f4Ya_5oUD1QRFCtJ1BvRjaY_k')">
+                            </div>
+                            <img class="card-avatar" src="../Imagenes/persona.png" alt="avatar" />
+                            <h1 class="card-fullname">Andrea Hilda Grados</h1>
+                            <h2 class="card-jobtitle">Especialista en Diseño</h2>
+                        </div>
+                        <div class="card-main">
+                            <div class="card-section1 is-active" id="andrea">
+                                <div class="card-content">
+                                    <div class="card-subtitle">ACERCA DE</div>
+                                    <p class="card-desc">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec justo aliquam, rhoncus arcu vel, consectetur mi. Aliquam vitae posuere.
+                                    </p>
+                                </div>
+                                <div class="card-social">
+                                    <a href="https://www.facebook.com" target="_blank">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M15.997 3.985h2.191V.169C17.81.117 16.51 0 14.996 0c-3.159 0-5.323 1.987-5.323 5.639V9H6.187v4.266h3.486V24h4.274V13.267h3.345l.531-4.266h-3.877V6.062c.001-1.233.333-2.077 2.051-2.077z" />
+                                        </svg>
+                                    </a>
+                                    <a href="https://www.twitter.com" target="_blank">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                            <path d="M512 97.248c-19.04 8.352-39.328 13.888-60.48 16.576 21.76-12.992 38.368-33.408 46.176-58.016-20.288 12.096-42.688 20.64-66.56 25.408C411.872 60.704 384.416 48 354.464 48c-58.112 0-104.896 47.168-104.896 104.992 0 8.32.704 16.32 2.432 23.936-87.264-4.256-164.48-46.08-216.352-109.792-9.056 15.712-14.368 33.696-14.368 53.056 0 36.352 18.72 68.576 46.624 87.232-16.864-.32-33.408-5.216-47.424-12.928v1.152c0 51.008 36.384 93.376 84.096 103.136-8.544 2.336-17.856 3.456-27.52 3.456-6.72 0-13.504-.384-19.872-1.792 13.6 41.568 52.192 72.128 98.08 73.12-35.712 27.936-81.056 44.768-130.144 44.768-8.608 0-16.864-.384-25.12-1.44C46.496 446.88 101.6 464 161.024 464c193.152 0 298.752-160 298.752-298.688 0-4.64-.16-9.12-.384-13.568 20.832-14.784 38.336-33.248 52.608-54.496z" />
+                                        </svg>
+                                    </a>
+                                    <a href="https://www.instagram.com" target="_blank">
+                                        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M301 256c0 24.852-20.148 45-45 45s-45-20.148-45-45 20.148-45 45-45 45 20.148 45 45zm0 0" />
+                                            <path d="M332 120H180c-33.086 0-60 26.914-60 60v152c0 33.086 26.914 60 60 60h152c33.086 0 60-26.914 60-60V180c0-33.086-26.914-60-60-60zm-76 211c-41.355 0-75-33.645-75-75s33.645-75 75-75 75 33.645 75 75-33.645 75-75 75zm86-146c-8.285 0-15-6.715-15-15s6.715-15 15-15 15 6.715 15 15-6.715 15-15 15zm0 0" />
+                                            <path d="M377 0H135C60.562 0 0 60.563 0 135v242c0 74.438 60.563 135 135 135h242c74.438 0 135-60.563 135-135V135C512 60.562 451.437 0 377 0zm45 332c0 49.625-40.375 90-90 90H180c-49.625 0-90-40.375-90-90V180c0-49.625 40.375-90 90-90h152c49.625 0 90 40.375 90 90zm0 0" />
+                                        </svg>
+                                    </a>
+                                    <a href="https://www.linkedin.com" target="_blank">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M23.994 24v-.001H24v-8.802c0-4.306-.927-7.623-5.961-7.623-2.42 0-4.044 1.328-4.707 2.587h-.07V7.976H8.489v16.023h4.97v-7.934c0-2.089.396-4.109 2.983-4.109 2.549 0 2.587 2.384 2.587 4.243V24zM.396 7.977h4.976V24H.396zM2.882 0C1.291 0 0 1.291 0 2.882s1.291 2.909 2.882 2.909 2.882-1.318 2.882-2.909A2.884 2.884 0 002.882 0z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="card-section1" id="experience1">
+                                <div class="card-content">
+                                    <div class="card-subtitle">EXPERIENCIA DE TRABAJO</div>
+                                    <div class="card-timeline">
+                                        <div class="card-item" data-year="2014">
+                                            <div class="card-item-title">
+                                                Front-end Developer at <span>JotForm</span>
+                                            </div>
+                                            <div class="card-item-desc">
+                                                Disrupt stumptown retro everyday carry unicorn.
+                                            </div>
+                                        </div>
+                                        <div class="card-item" data-year="2017">
+                                            <div class="card-item-title">
+                                                UI Developer at <span>GitHub</span>
+                                            </div>
+                                            <div class="card-item-desc">
+                                                Developed new conversion funnels and disrupt.
+                                            </div>
+                                        </div>
+                                        <div class="card-item" data-year="2020">
+                                            <div class="card-item-title">
+                                                Illustrator at <span>Google</span>
+                                            </div>
+                                            <div class="card-item-desc">
+                                                Onboarding illustrations for App.
+                                            </div>
+                                        </div>
+                                        <div class="card-item" data-year="2023">
+                                            <div class="card-item-title">
+                                                Full-Stack Developer at <span>CodePen</span>
+                                            </div>
+                                            <div class="card-item-desc">
+                                                Responsible for the encomposing brand expreience.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-section1" id="contact1">
+                                <div class="card-content">
+                                    <div class="card-subtitle">CONTACTO</div>
+                                    <div class="card-contact-wrapper">
+                                        <div class="card-contact">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                                                <circle cx="12" cy="10" r="3" />
+                                            </svg>
+                                            Chorrillos
+                                        </div>
+                                        <div class="card-contact">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor"
+                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                                            </svg>(+51) 931 063 702
+                                        </div>
+                                        <div class="card-contact">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                                <path d="M22 6l-10 7L2 6" />
+                                            </svg>
+                                            andrea.grados@usil.pe
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-buttons1">
+                                <button data-section="#andrea" class="is-active">ACERCA DE</button>
+                                <button data-section="#experience1">EXPERIENCIA</button>
+                                <button data-section="#contact1">CONTACTO</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 my-4 mb-3">
+                    <div class="card2 card" data-state="#alexis">
+                        <div class="card-header">
+                            <div class="card-cover" 
+                                style="background-image: url('https://media.licdn.com/dms/image/C4D05AQGCrTk6rJnrOQ/videocover-low/0/1657036638178?e=2147483647&v=beta&t=H4YxjCLWMTJoL-Rc_6f4Ya_5oUD1QRFCtJ1BvRjaY_k')">
+                            </div>
+                            <img class="card-avatar" src="../Imagenes/persona.png" alt="avatar" />
+                            <h1 class="card-fullname">Alexis Martin Nuñez</h1>
+                            <h2 class="card-jobtitle">Diseñador Web</h2>
+                        </div>
+                        <div class="card-main">
+                            <div class="card-section2 is-active" id="alexis">
+                                <div class="card-content">
+                                    <div class="card-subtitle">ABOUT</div>
+                                    <p class="card-desc">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec justo aliquam, rhoncus arcu vel, consectetur mi. Aliquam vitae posuere.
+                                    </p>
+                                </div>
+                                <div class="card-social">
+                                    <a href="https://www.facebook.com" target="_blank">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M15.997 3.985h2.191V.169C17.81.117 16.51 0 14.996 0c-3.159 0-5.323 1.987-5.323 5.639V9H6.187v4.266h3.486V24h4.274V13.267h3.345l.531-4.266h-3.877V6.062c.001-1.233.333-2.077 2.051-2.077z" />
+                                        </svg>
+                                    </a>
+                                    <a href="https://www.twitter.com" target="_blank">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                            <path d="M512 97.248c-19.04 8.352-39.328 13.888-60.48 16.576 21.76-12.992 38.368-33.408 46.176-58.016-20.288 12.096-42.688 20.64-66.56 25.408C411.872 60.704 384.416 48 354.464 48c-58.112 0-104.896 47.168-104.896 104.992 0 8.32.704 16.32 2.432 23.936-87.264-4.256-164.48-46.08-216.352-109.792-9.056 15.712-14.368 33.696-14.368 53.056 0 36.352 18.72 68.576 46.624 87.232-16.864-.32-33.408-5.216-47.424-12.928v1.152c0 51.008 36.384 93.376 84.096 103.136-8.544 2.336-17.856 3.456-27.52 3.456-6.72 0-13.504-.384-19.872-1.792 13.6 41.568 52.192 72.128 98.08 73.12-35.712 27.936-81.056 44.768-130.144 44.768-8.608 0-16.864-.384-25.12-1.44C46.496 446.88 101.6 464 161.024 464c193.152 0 298.752-160 298.752-298.688 0-4.64-.16-9.12-.384-13.568 20.832-14.784 38.336-33.248 52.608-54.496z" />
+                                        </svg>
+                                    </a>
+                                    <a href="https://www.instagram.com" target="_blank">
+                                        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M301 256c0 24.852-20.148 45-45 45s-45-20.148-45-45 20.148-45 45-45 45 20.148 45 45zm0 0" />
+                                            <path d="M332 120H180c-33.086 0-60 26.914-60 60v152c0 33.086 26.914 60 60 60h152c33.086 0 60-26.914 60-60V180c0-33.086-26.914-60-60-60zm-76 211c-41.355 0-75-33.645-75-75s33.645-75 75-75 75 33.645 75 75-33.645 75-75 75zm86-146c-8.285 0-15-6.715-15-15s6.715-15 15-15 15 6.715 15 15-6.715 15-15 15zm0 0" />
+                                            <path d="M377 0H135C60.562 0 0 60.563 0 135v242c0 74.438 60.563 135 135 135h242c74.438 0 135-60.563 135-135V135C512 60.562 451.437 0 377 0zm45 332c0 49.625-40.375 90-90 90H180c-49.625 0-90-40.375-90-90V180c0-49.625 40.375-90 90-90h152c49.625 0 90 40.375 90 90zm0 0" />
+                                        </svg>
+                                    </a>
+                                    <a href="https://www.linkedin.com" target="_blank">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M23.994 24v-.001H24v-8.802c0-4.306-.927-7.623-5.961-7.623-2.42 0-4.044 1.328-4.707 2.587h-.07V7.976H8.489v16.023h4.97v-7.934c0-2.089.396-4.109 2.983-4.109 2.549 0 2.587 2.384 2.587 4.243V24zM.396 7.977h4.976V24H.396zM2.882 0C1.291 0 0 1.291 0 2.882s1.291 2.909 2.882 2.909 2.882-1.318 2.882-2.909A2.884 2.884 0 002.882 0z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="card-section2" id="experience2">
+                                <div class="card-content">
+                                    <div class="card-subtitle">EXPERIENCIA DE TRABAJO</div>
+                                    <div class="card-timeline">
+                                        <div class="card-item" data-year="2014">
+                                            <div class="card-item-title">
+                                                Front-end Developer at <span>JotForm</span>
+                                            </div>
+                                            <div class="card-item-desc">
+                                                Disrupt stumptown retro everyday carry unicorn.
+                                            </div>
+                                        </div>
+                                        <div class="card-item" data-year="2017">
+                                            <div class="card-item-title">
+                                                UI Developer at <span>GitHub</span>
+                                            </div>
+                                            <div class="card-item-desc">
+                                                Developed new conversion funnels and disrupt.
+                                            </div>
+                                        </div>
+                                        <div class="card-item" data-year="2020">
+                                            <div class="card-item-title">
+                                                Illustrator at <span>Google</span>
+                                            </div>
+                                            <div class="card-item-desc">
+                                                Onboarding illustrations for App.
+                                            </div>
+                                        </div>
+                                        <div class="card-item" data-year="2023">
+                                            <div class="card-item-title">
+                                                Full-Stack Developer at <span>CodePen</span>
+                                            </div>
+                                            <div class="card-item-desc">
+                                                Responsible for the encomposing brand expreience.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-section2" id="contact2">
+                                <div class="card-content">
+                                    <div class="card-subtitle">CONTACTO</div>
+                                    <div class="card-contact-wrapper">
+                                        <div class="card-contact">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                                                <circle cx="12" cy="10" r="3" />
+                                            </svg>
+                                            La Molina
+                                        </div>
+                                        <div class="card-contact">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor"
+                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                                            </svg>(+51) 919 618 303
+                                        </div>
+                                        <div class="card-contact">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                                <path d="M22 6l-10 7L2 6" />
+                                            </svg>
+                                            alexis.nunez@usil.pe
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-buttons2">
+                                <button data-section="#alexis" class="is-active">ACERCA DE</button>
+                                <button data-section="#experience2">EXPERIENCIA</button>
+                                <button data-section="#contact2">CONTACTO</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer" class="text-center text-lg-start text-white" style="background: #29618f;">
+        <section class=" d-flex justify-content-between p-2" style="background-color: #6351ce;" id="footer_section">
+            <div class="me-2" style="margin: auto 17px;">
+                <span>Conéctese con nosotros en nuestras redes sociales:</span>
+            </div>
+
+            <div class="footer-icons">
+                <a id="btnLeft" target="_blank" href="https://www.instagram.com" class="text-white me-3"
+                   style="text-decoration: none">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a id="twitter" target="_blank" href="https://www.twitter.com" class="text-white me-3"
+                   style="text-decoration: none">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a id="linkedin" target="_blank" href="https://www.linkedin.com" class="text-white me-3"
+                   style="text-decoration: none">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a id="github" target="_blank" href="https://www.github.com" class="text-white me-3"
+                   style="text-decoration: none">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+        </section>
+        <section>
+            <div class="container text-center text-md-start mt-4">
+                <div class="row mt-3">
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-3">
+                        <h6 class="text-uppercase fw-bold text-center">USIL - MarketPlus</h6>
+                        <img class="logo_footer" src="/Imagenes/Logo.jpg">
+                        <hr class="mb-3 mt-0 d-inline-block mx-auto" />
+                        <p class="text-center">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate accusamus iste, provident
+                            suscipit explicabo
+                        </p>
+                    </div>
+
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-3">
+                        <h6 class="text-uppercase fw-bold text-center">Links</h6>
+                        <hr class="mb-3 mt-0 d-inline-block mx-auto" />
+                        <p>
+                            <a asp-controller="TrabajoFinal" asp-action="Index" class="text-white">Home</a>
+                        </p>
+                        <p>
+                            <a asp-controller="TrabajoFinal" asp-action="Contactanos" class="text-white">Contáctanos</a>
+                        </p>
+                        <p>
+                            <a asp-controller="TrabajoFinal" asp-action="Nosotros" class="text-white">Nosotros</a>
+                        </p>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-3">
+                        <h6 class="text-uppercase fw-bold text-center">Contacto</h6>
+                        <hr class="mb-3 mt-0 d-inline-block mx-auto" />
+                        <p><i class="fas fa-home mr-3"></i> <span> USIL - Campus 2</span></p>
+                        <p><i class="fas fa-envelope mr-3"></i> marketplus@usil.pe</p>
+                        <p><i class="fas fa-phone mr-3"></i> 939 018 357</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.2)">
+            Copyright © 2023
+        </div>
+    </footer>
+
+    <script src="~/Scripts/cards.js"></script>
+</body>
+
+</html>

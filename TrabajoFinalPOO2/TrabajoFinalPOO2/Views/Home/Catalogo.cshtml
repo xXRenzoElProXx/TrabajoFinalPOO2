@@ -1,0 +1,336 @@
+﻿<html>
+
+<head>
+    <meta name="viewport" content="width, initial-scale=1.0" />
+    <title>Catálogo</title>
+    <link rel="stylesheet" href="~/Estilos/style.css">
+    <link rel="stylesheet" href="~/Estilos/catalogo.css">
+    <link rel="stylesheet" href="~/Estilos/toast.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="~/lib/fontawesome-free-6.4.0-web/css/all.min.css" />
+</head>
+
+<body style="overflow-x: hidden;">
+    <header>
+        <nav id="nav" style="background-color: seagreen;" class="navbar navbar-expand-lg navbar-light fixed-top"
+             aria-label="Offcanvas navbar large">
+            <div class="container-fluid">
+                <a class="navbar-brand">
+                    <img style="filter: contrast(185%);
+          -webkit-filter: contrast(185%);
+          -moz-filter: contrast(185%);" src="~/Imagenes/logo.ico" width="40" height="40">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2"
+                        aria-controls="offcanvasNavbar2" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar2"
+                     aria-labelledby="offcanvasNavbar2Label">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbar2Label">USIL - MARKETPLUS</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold active" asp-controller="Home" asp-action="Catalogo"
+                                   style="color: white; text-decoration: none ; font-size: 17px;">Catálogo</a>
+                            </li>
+                            <li class="nav-item dropdown d-flex mt-3 mt-lg-0">
+                                <img src="@ViewData["imgUsuario"]" height="60" width="60" style="margin: 0 20px" class="dropdown-toggle rounded-circle" id="form-open" data-bs-toggle="dropdown" aria-expanded="false" />
+
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a id="entrar2" class="dropdown-item fw-bold" style="font-size: 17px" asp-controller="Inicio" asp-action="EditarPerfil" asp-route-id="@ViewData["idUsuario"]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                                            </svg> Perfil
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a id="entrar3" style="text-decoration: none; color: black; font-size: 17px" asp-area="" asp-controller="Home" asp-action="CerrarSesion" class="dropdown-item fw-bold"> 
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z" />
+                                                <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z" />
+                                            </svg> Salir
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>                           
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container mt-3">
+            <div class="mostrador" id="mostrador">
+                <div class="toasts" style="overflow-x: hidden;">
+                    <div class="toasts-content">
+                        <img src="@ViewData["imgUsuario"]" class="rounded-circle check"/>
+                        <div class="message">
+                            <span class="text text-1">Bienvenido @ViewData["nombreUsuario"]</span>
+                            <span class="text text-2">Te has Logueado Correctamente</span>
+                        </div>
+                    </div>
+                    <div class="progress"></div>
+                </div>
+                <div id="inicio" style="margin-top: 50px;" data-aos="fade-up">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 my-12">
+                            <h1 class="fw-bold text-center display-4">CATÁLOGO</h1>
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <a id="des" href="#desayuno" class="h6" style="text-decoration: none">DESAYUNOS</a>
+                                    <span class="badge bg-primary rounded-pill">
+                                        <a id="des" style="text-decoration: none; color: white;" href="#desayuno">
+                                            <i class="fa-solid fa-arrow-down fa-bounce"></i>
+                                        </a>
+                                    </span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <a id="alm" href="#almuerzos" class="h6" style="text-decoration: none">ALMUERZOS</a>
+                                    <span class="badge bg-primary rounded-pill">
+                                        <a id="des" style="text-decoration: none; color: white;" href="#almuerzos">
+                                            <i class="fa-solid fa-arrow-down fa-bounce"></i>
+                                        </a>
+                                    </span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <a id="cen" href="#cenas" class="h6" style="text-decoration: none">CENAS</a>
+                                    <span class="badge bg-primary rounded-pill">
+                                        <a id="des" style="text-decoration: none; color: white;" href="#cenas">
+                                            <i class="fa-solid fa-arrow-down fa-bounce"></i>
+                                        </a>
+                                    </span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <a id="sna" href="#snacks" class="h6" style="text-decoration: none">SNACKS</a>
+                                    <span class="badge bg-primary rounded-pill">
+                                        <a id="des" style="text-decoration: none; color: white;" href="#snacks">
+                                            <i class="fa-solid fa-arrow-down fa-bounce"></i>
+                                        </a>
+                                    </span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <a id="util" href="#utiles" class="h6" style="text-decoration: none">
+                                        ÚTILES ACADÉMICOS
+                                    </a>
+                                    <span class="badge bg-primary rounded-pill">
+                                        <a id="des" style="text-decoration: none; color: white;" href="#utiles">
+                                            <i class="fa-solid fa-arrow-down fa-bounce"></i>
+                                        </a>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <a style="margin-top: 50px;" data-aos="fade-up" class="btn btn-primary fw-bold" asp-controller="TemporalVenta" asp-action="VerCarrito">VER CARRITO</a>
+
+                <div class="row my-3">
+                    <form class="row row-cols-lg-auto g-3 align-items-center" asp-controller="Producto" asp-action="filtrarPrecio" method="post">
+                        <div class="col-12">
+                            <div class="input-group">
+                                <input name="precio1" type="number" class="form-control" placeholder="Ingrese precio Mínimo" required>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="input-group">
+                                <input name="precio2" type="number" class="form-control" placeholder="Ingrese precio Máximo" required>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-info fw-bold">Filtrar</button>
+                        </div>
+                        <div class="col-12">
+                            <a asp-action="Catalogo" asp-controller="Home" class="btn btn-secondary fw-bold">Mostrar todos Productos</a>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="desayuno" style="margin-top: 50px;" data-aos="fade-up">
+                    <h3 class="fw-bold" id="title">DESAYUNOS</h3>
+                    <div class="row card-container">
+                        @foreach (var item in ViewBag.Desayunos)
+                        {
+                            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 my-3">
+                                <center>
+                                    <div class="card" style="width: 18rem">
+                                        <img class="card-img-top img-fluid" style="height: 300px" src="@item.Img">
+
+                                        <div class="card-body">
+                                            <h5 class="card-title">@item.DesPro</h5>
+                                            <p class="card-text">S/@Math.Round(item.PrePro).00</p>
+                                            <a asp-action="ComprarD" asp-controller="Producto" asp-route-id="@item.CodPro" class="btn btn-primary">
+                                                🛒 Comprar 🛒
+                                            </a>
+                                        </div>
+                                    </div>
+                                </center>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div id="almuerzos" style="margin-top: 50px;" data-aos="fade-up">
+                    <h3 class="fw-bold" id="title">ALMUERZOS</h3>
+                    <div class="row card-container">
+                        @foreach (var item in ViewBag.Almuerzos)
+                        {
+                            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 my-3">
+                                <center>
+                                    <div class="card" style="width: 18rem">
+                                        <img class="card-img-top img-fluid" style="height: 300px" src="@item.Img">
+
+                                        <div class="card-body">
+                                            <h5 class="card-title">@item.DesPro</h5>
+                                            <p class="card-text">S/@Math.Round(item.PrePro).00</p>
+                                            <a asp-action="ComprarA" asp-controller="Producto" asp-route-id="@item.CodPro" class="btn btn-primary">
+                                                🛒 Comprar 🛒
+                                            </a>
+                                        </div>
+                                    </div>
+                                </center>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div id="cenas" style="margin-top: 50px;" data-aos="fade-up">
+                    <h3 class="fw-bold" id="title">CENAS</h3>
+                    <div class="row card-container">
+                        @foreach (var item in ViewBag.Cenas)
+                        {
+                            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 my-3">
+                                <center>
+                                    <div class="card" style="width: 18rem">
+                                        <img class="card-img-top img-fluid" style="height: 300px" src="@item.Img">
+
+                                        <div class="card-body">
+                                            <h5 class="card-title">@item.DesPro</h5>
+                                            <p class="card-text">S/@Math.Round(item.PrePro).00</p>
+                                            <a asp-action="ComprarC" asp-controller="Producto" asp-route-id="@item.CodPro" class="btn btn-primary">
+                                                🛒 Comprar 🛒
+                                            </a>
+                                        </div>
+                                    </div>
+                                </center>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div id="snacks" style="margin-top: 50px;" data-aos="fade-up">
+                    <h3 class="fw-bold" id="title">SNACKS</h3>
+                    <div class="row card-container">
+                        @foreach (var item in ViewBag.Snacks)
+                        {
+                            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 my-3">
+                                <center>
+                                    <div class="card" style="width: 18rem">
+                                        <img class="card-img-top img-fluid" style="height: 300px" src="@item.Img">
+
+                                        <div class="card-body">
+                                            <h5 class="card-title">@item.DesPro</h5>
+                                            <p class="card-text">S/@Math.Round(item.PrePro).00</p>
+                                            <a asp-action="ComprarS" asp-controller="Producto" asp-route-id="@item.CodPro" class="btn btn-primary">
+                                                🛒 Comprar 🛒
+                                            </a>
+                                        </div>
+                                    </div>
+                                </center>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div id="utiles" style="margin-top: 50px; margin-bottom: 50px;" data-aos="fade-up">
+                    <h3 class="fw-bold" id="title4">ÚTILES ACADÉMICOS</h3>
+                    <div class="row card-container">
+                        @foreach (var item in ViewBag.Utiles)
+                        {
+                            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 my-3">
+                                <center>
+                                    <div class="card" style="width: 18rem">
+                                        <img class="card-img-top img-fluid" style="height: 300px" src="@item.Img">
+
+                                        <div class="card-body">
+                                            <h5 class="card-title">@item.DesPro</h5>
+                                            <p class="card-text">S/@Math.Round(item.PrePro).00</p>
+                                            <a asp-action="ComprarU" asp-controller="Producto" asp-route-id="@item.CodPro" class="btn btn-primary">
+                                                🛒 Comprar 🛒
+                                            </a>
+                                        </div>
+                                    </div>
+                                </center>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer" class="text-center text-lg-start text-white" style="background: #29618f;">
+        <section class=" d-flex justify-content-between p-2" style="background-color: #6351ce;" id="footer_section">
+            <div class="me-2" style="margin: auto 17px;">
+                <span>Conéctese con nosotros en nuestras redes sociales:</span>
+            </div>
+
+            <div class="footer-icons">
+                <a id="btnLeft" target="_blank" href="https://www.instagram.com" class="text-white me-3"
+                   style="text-decoration: none">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a id="twitter" target="_blank" href="https://www.twitter.com" class="text-white me-3"
+                   style="text-decoration: none">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a id="linkedin" target="_blank" href="https://www.linkedin.com" class="text-white me-3"
+                   style="text-decoration: none">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a id="github" target="_blank" href="https://www.github.com" class="text-white me-3"
+                   style="text-decoration: none">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+        </section>
+        <section>
+            <div class="container text-center text-md-start mt-4">
+                <div class="row mt-3">
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-3">
+                        <h6 class="text-uppercase fw-bold text-center">USIL - MarketPlus</h6>
+                        <img class="logo_footer" src="/Imagenes/Logo.jpg">
+                        <hr class="mb-3 mt-0 d-inline-block mx-auto" />
+                        <p class="text-center">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate accusamus iste, provident
+                            suscipit explicabo
+                        </p>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-3">
+                        <h6 class="text-uppercase fw-bold text-center">Contacto</h6>
+                        <hr class="mb-3 mt-0 d-inline-block mx-auto" />
+                        <p><i class="fas fa-home mr-3"></i> <span> USIL - Campus 2</span></p>
+                        <p><i class="fas fa-envelope mr-3"></i> marketplus@usil.pe</p>
+                        <p><i class="fas fa-phone mr-3"></i> 939 018 357</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.2)">
+            Copyright © 2023
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="~/lib/fontawesome-free-6.4.0-web/js/all.min.js"></script>
+    <script src="~/Scripts/toast.js"></script>
+</body>
+
+</html>

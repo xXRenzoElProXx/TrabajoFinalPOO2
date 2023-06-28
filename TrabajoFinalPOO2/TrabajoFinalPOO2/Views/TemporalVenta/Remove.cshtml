@@ -1,0 +1,48 @@
+﻿@model IEnumerable<TemporalVenta>
+
+<html>
+<head>
+    <meta name="viewport" content="width, initial-scale=1.0" />
+    <title>Ver Carrito</title>
+    <link rel="stylesheet" href="~/Estilos/comprar.css">
+</head>
+<body>
+    <center>
+        <h1 class="align-content-center alert-primary mt-2 fw-bold">Carrito de Compras</h1>
+        <table class="table table-bordered table-info table-hover table-striped text-center" id="tabla1">
+            <thead>
+                <tr id="fila1">
+                    <th scope="col">Codigo</th>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Precio por Unidad</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">ELIMINAR</th>
+                    <th scope="col">EDITAR</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                @foreach (var item in Model)
+                {
+                    <tr id="fila2">
+                        <td>@item.codigo</td>
+                        <td>@item.descripcion</td>
+                        <td>S/@item.precio.00</td>
+                        <td>@item.cantidad u</td>
+                        <td>S/@item.total.00</td>
+                        <td><a asp-action="Remove" asp-route-id="@item.codigo"><i class="fa-solid fa-trash"></i> Eliminar</a></td>
+                        <td><a asp-action="EditarT" asp-controller="TemporalVenta" asp-route-id="@item.codigo"><i class="fa-solid fa-pencil"></i> Editar</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </center>
+    <div id="tot" class="m-3 fw-bold text-uppercase" style="font-size: 22px"></div>
+
+    <a asp-action="Pagar" id="pagar" class="btn btn-success m-3 fw-bold text-white text-uppercase text-center" style="height: 80px; width:150px; font-size: 20px; position: fixed; bottom: 40px; left: 40px;">Generar Boleta</a>
+    <div id="vacio" style="font-size: 22px; text-transform: uppercase; font-weight: bold; color: #ffffff; padding: 18px 30px; letter-spacing: 2px;background-color: #ff0000; border-radius: 5px; position: fixed; top: 30%; left: 40%;box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);"></div>
+
+    <a style="text-decoration: none" asp-action="Catalogo" asp-controller="Home" class="btn-flotante">Volver al Catálogo</a>
+    <script src="~/Scripts/ver-eliminar.js"></script>
+</body>
+</html>

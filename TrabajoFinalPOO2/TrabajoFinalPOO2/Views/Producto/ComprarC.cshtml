@@ -1,0 +1,36 @@
+﻿@model TrabajoFinal.Models.TbCena
+
+<html>
+    <head>
+        <meta name="viewport" content="width, initial-scale=1.0" />
+        <title>Comprar</title>
+        <link rel="stylesheet" href="~/Estilos/comprar.css">
+    </head>
+
+    <body>
+        <center>
+            <main class="container">
+                <h3><strong>Codigo del Producto:</strong> @Model.CodPro</h3>
+                <h3><strong>Producto:</strong> @Model.DesPro</h3>
+                <h3><strong>Precio del Producto:</strong> S/@Math.Round(Model.PrePro).00</h3>
+                <img src="@Model.Img" height="300" style="border-radius: 20px" />
+                <form asp-controller="TemporalVenta" asp-action="Index" method="post">
+                    <input type="hidden" name="txtcodigo" value="@Model.CodPro" />
+                    <input type="hidden" name="txtdescripcion" value="@Model.DesPro" />
+                    <input type="hidden" name="txtprecio" value="@Model.PrePro" />
+                    <input type="number" name="txtcantidad" min="1" placeholder="Ingrese la Cantidad" class="form-control my-3" style="width: 300px" required/>
+                    @if (TempData["Message"] != null)
+                    {
+                        <div class="alert alert-danger fw-bold">@TempData["Message"]</div>
+                        <a class="btn btn-danger" asp-action="Catalogo" asp-controller="Home">Volver</a>
+                    }
+                    else
+                    {
+                        <button class="btn btn-success" type="submit"><i class="fa-solid fa-circle-plus"></i> Grabar en Carrito</button>
+                    }
+                </form>
+            </main>
+            
+        </center>
+    </body>
+</html>

@@ -1,0 +1,87 @@
+﻿@model TrabajoFinal.Models.Usuario
+
+<html>
+<head>
+    <meta name="viewport" content="width, initial-scale=1.0" />
+    <title>Editar Perfil</title>
+    <link rel="stylesheet" href="~/Estilos/editarPerfil.css">
+    <link rel="stylesheet" href="~/lib/fonts/iconic/css/material-design-iconic-font.css" />
+    <link rel="stylesheet" href="~/lib/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<body>
+    <div class="container" style="margin-top: 10px">
+        <h1 class="text-center fw-bold">Editar Perfil</h1>
+        <hr>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="text-center">
+                    <img src="@ViewData["imgUsuario"]" class="avatar rounded-circle" height="200" width="200">
+                </div>
+            </div>
+
+            <div class="col-md-8 personal-info">
+                <div class="alert alert-danger alert-dismissable text-center">
+                    <strong>Para ver los datos cambiados cierre la sesión <br />
+                        y vuelva a ingresar.</strong>
+                </div>
+                <form class="form-horizontal" role="form" asp-controller="Inicio" asp-action="editarPerfilP" method="post">
+                    <div class="mb-3">
+                        <input type="hidden" asp-for="IdUsuario" class="form-control" required />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label control-label>Correo Electrónico</label>
+                        <div class="col-lg-8">
+                            <input type="text" asp-for="Correo" class="form-control" disabled readonly aria-label="Disabled input example" />
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label control-label" for="des">Ingrese el Nuevo Nombre de Usuario</label>
+                        <div class="col-lg-8">
+                            <input type="text" asp-for="NombreUsuario" placeholder="Nombre de Usuario" class="form-control" id="des" required />
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label control-label" for="img">Ingrese nueva URL para Imagen de Perfil</label>
+                        <div class="col-lg-8">
+                            <input type="url" asp-for="Imagen" placeholder="Ingrese la Url Imagen" class="form-control" id="img" required accept="image/x-png,image/jpeg" />
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <input type="hidden" asp-for="Clave" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                        <a style="text-decoration:none" asp-action="CambiarPass" asp-controller="Inicio" asp-route-id="@ViewData["idUsuario"]">Cambiar Contraseña</a>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="col-md-8">
+                            <button type="submit" class="btn btn-success">Modificar</button>
+                            <span></span>
+                            <a class="btn btn-default" asp-action="Catalogo" asp-controller="Home">Cancelar</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <hr>
+    </div>
+
+    <script>
+        const eyeIcons = document.querySelectorAll(".show-hide");
+
+        eyeIcons.forEach((eyeIcon) => {
+            eyeIcon.addEventListener("click", () => {
+                const pInput = eyeIcon.parentElement.querySelector("input");
+                if (pInput.type === "password") {
+                    eyeIcon.classList.replace("bx-hide", "bx-show");
+                    return (pInput.type = "text");
+                }
+                eyeIcon.classList.replace("bx-show", "bx-hide");
+                pInput.type = "password";
+            });
+        });
+    </script>
+</body>
+</html>

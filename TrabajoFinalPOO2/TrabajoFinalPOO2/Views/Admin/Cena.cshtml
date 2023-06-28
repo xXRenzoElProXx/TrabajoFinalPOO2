@@ -1,0 +1,254 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cena</title>
+    <link rel="stylesheet" href="~/Estilos/admin.css" />
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .search-box {
+            width: fit-content;
+            height: fit-content;
+            position: relative;
+            z-index: 99;
+        }
+
+        .input-search {
+            height: 50px;
+            width: 50px;
+            border-style: none;
+            padding: 10px;
+            font-size: 18px;
+            letter-spacing: 2px;
+            outline: none;
+            border-radius: 25px;
+            transition: all .5s ease-in-out;
+            background-color: #22a6b3;
+            padding-right: 40px;
+            color: black;
+        }
+
+            .input-search::placeholder {
+                color: black;
+                font-size: 18px;
+                letter-spacing: 2px;
+                font-weight: 100;
+            }
+
+        .btn-search {
+            width: 50px;
+            height: 50px;
+            border-style: none;
+            font-size: 20px;
+            font-weight: bold;
+            outline: none;
+            cursor: pointer;
+            border-radius: 50%;
+            position: absolute;
+            right: 0px;
+            color: black;
+            background-color: #a5feff;
+            pointer-events: painted;
+        }
+
+            .btn-search:focus ~ .input-search {
+                width: 300px;
+                border-radius: 0px;
+                background-color: #a5feff;
+                border-bottom: 1px solid rgba(255,255,255,.5);
+                transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+            }
+
+        .input-search:focus {
+            width: 300px;
+            border-radius: 0px;
+            background-color: #a5feff;
+            border-bottom: 1px solid rgba(255,255,255,.5);
+            transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav id="nav" style="background-color: seagreen;" class="navbar navbar-expand-lg navbar-light fixed-top"
+             aria-label="Offcanvas navbar large">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-controller="Admin" asp-action="Desayuno">
+                    <img style="filter: contrast(185%);
+          -webkit-filter: contrast(185%);
+          -moz-filter: contrast(185%);" src="~/Imagenes/Admin.png" width="50" height="50">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2"
+                        aria-controls="offcanvasNavbar2" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar2"
+                     aria-labelledby="offcanvasNavbar2Label">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbar2Label">MENU ADMIN</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" asp-controller="Admin" asp-action="Desayuno"
+                                   style="color: white; text-decoration: none; font-size: 17px;">Desayuno</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" asp-controller="Admin" asp-action="Almuerzo"
+                                   style="color: white; text-decoration: none; font-size: 17px;">Almuerzo</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold active" asp-controller="Admin" asp-action="Cena"
+                                   style="color: white; text-decoration: none; font-size: 17px;">Cena</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" asp-controller="Admin" asp-action="Snack"
+                                   style="color: white; text-decoration: none; font-size: 17px;">Snack</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" asp-controller="Admin" asp-action="Utiles"
+                                   style="color: white; text-decoration: none; font-size: 17px;">Útiles</a>
+                            </li>
+                            <li class="nav-item d-flex mt-3 mt-lg-0">
+                                <button class="btn btn-sm fw-bold btn-danger text-black" style="--bs-btn-padding-y: 1px; --bs-btn-padding-x: 1px; --bs-btn-font-size: 20px;">
+                                    <a id="btn" style="text-decoration: none; color: black" asp-area="" asp-controller="Admin" asp-action="LogOut"> Salir</a>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container mt-3">
+            <div class="mostrador" id="mostrador">
+                <div id="cenas" style="margin-top: 50px;" data-aos="fade-up">
+                    <div class="row">
+                        <h3 id="title" class="fw-bold col-md-10 col-lg-10 col-xl-10 fs-1 text-center">CENA</h3>
+                        <div class="col-8">
+                            <button class="btn btn-primary col-md-2 col-lg-2 col-xl-2"><a asp-action="NuevoC" asp-controller="Producto" style="margin-top: 50px; text-decoration:none; color: white; font-size:20px; font-weight: bold">AÑADIR <i class="fa-solid fa-plus fa-beat"></i></a></button>
+                        </div>
+                        <div class="col-4 search-box">
+                            <button class="btn-search"><i class="fas fa-search"></i></button>
+                            <input type="text" class="input-search" placeholder="Buscar..." id="myInput" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="row card-container">
+                        @foreach (var item in ViewBag.Cenas)
+                        {
+                            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 my-3 contenedor-items">
+                                <center>
+                                    <div class="card item" style="width: 18rem">
+                                        <img class="card-img-top img-fluid" style="height: 300px" src="@item.Img" title="@item.DesPro">
+
+                                        <div class="card-body">
+                                            <h5 class="card-title">@item.DesPro</h5>
+                                            <p class="card-text">S/@Math.Round(item.PrePro).00</p>
+                                            <div class="d-flex justify-content-evenly">
+                                                <a class="btn btn-primary rounded-circle" asp-action="EditarC" asp-controller="Producto" asp-route-id="@item.CodPro">
+                                                    <i class="fa-solid fa-pencil"></i>
+                                                </a>
+                                                <a class="btn btn-danger rounded-circle" asp-action="EliminarC" asp-controller="Producto" asp-route-id="@item.CodPro">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </center>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer" class="text-center text-lg-start text-white" style="background: #29618f;">
+        <section class=" d-flex justify-content-between p-2" style="background-color: #6351ce;" id="footer_section">
+            <div class="me-2" style="margin: auto 17px;">
+                <span>Conéctese con nosotros en nuestras redes sociales:</span>
+            </div>
+
+            <div class="footer-icons">
+                <a id="btnLeft" target="_blank" href="https://www.instagram.com" class="text-white me-3"
+                   style="text-decoration: none">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a id="twitter" target="_blank" href="https://www.twitter.com" class="text-white me-3"
+                   style="text-decoration: none">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a id="linkedin" target="_blank" href="https://www.linkedin.com" class="text-white me-3"
+                   style="text-decoration: none">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a id="github" target="_blank" href="https://www.github.com" class="text-white me-3"
+                   style="text-decoration: none">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+        </section>
+        <section>
+            <div class="container text-center text-md-start mt-4">
+                <div class="row mt-3">
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-3">
+                        <h6 class="text-uppercase fw-bold text-center">USIL - MarketPlus</h6>
+                        <img class="logo_footer" src="/Imagenes/Logo.jpg">
+                        <hr class="mb-3 mt-0 d-inline-block mx-auto" />
+                        <p class="text-center">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate accusamus iste, provident
+                            suscipit explicabo
+                        </p>
+                    </div>
+
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-3">
+                        <h6 class="text-uppercase fw-bold text-center">Links</h6>
+                        <hr class="mb-3 mt-0 d-inline-block mx-auto" />
+                        <p>
+                            <a asp-controller="TrabajoFinal" asp-action="Index" class="text-white">Home</a>
+                        </p>
+                        <p>
+                            <a asp-controller="TrabajoFinal" asp-action="Contactanos" class="text-white">Contáctanos</a>
+                        </p>
+                        <p>
+                            <a asp-controller="TrabajoFinal" asp-action="Nosotros" class="text-white">Nosotros</a>
+                        </p>
+                        <p>
+                            <a asp-controller="TrabajoFinal" asp-action="Catalogo" class="text-white">Catálogo</a>
+                        </p>
+                    </div>
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-3">
+                        <h6 class="text-uppercase fw-bold text-center">Contacto</h6>
+                        <hr class="mb-3 mt-0 d-inline-block mx-auto" />
+                        <p><i class="fas fa-home mr-3"></i> <span> USIL - Campus 2</span></p>
+                        <p><i class="fas fa-envelope mr-3"></i> marketplus@usil.pe</p>
+                        <p><i class="fas fa-phone mr-3"></i> 939 018 357</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.2)">
+            Copyright © 2023
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $(".card-container .card").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+</body>
+</html>

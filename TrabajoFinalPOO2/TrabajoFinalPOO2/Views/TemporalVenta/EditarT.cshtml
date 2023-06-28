@@ -1,0 +1,33 @@
+﻿@model TemporalVenta
+
+<html>
+<head>
+    <meta name="viewport" content="width, initial-scale=1.0" />
+    <title>Editar Cantidad</title>
+    <link rel="stylesheet" href="~/Estilos/nuevo.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <center>
+                    <h1><u class="fw-bold">Editar Producto</u></h1>
+                    <form asp-controller="TemporalVenta" asp-action="editarProductoT" method="post">
+                        <div class="mb-3">
+                            <input type="hidden" asp-for="codigo" class="form-control-sm" id="cod" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="img" class="form-label fw-bold">Cantidad del Producto</label>
+                            <input type="number" min="1" asp-for="cantidad" class="form-control-sm" id="img" required />
+                        </div>
+                        <div class="mb-3">
+                            <input type="hidden" asp-for="total" class="form-control-sm" id="cod" required />
+                        </div>
+                        <button type="submit" class="btn btn-success">Modificar</button>
+                    </form>
+                </center>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

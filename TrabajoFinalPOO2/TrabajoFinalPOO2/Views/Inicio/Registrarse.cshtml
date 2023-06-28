@@ -1,0 +1,85 @@
+﻿@model TrabajoFinal.Models.Usuario;
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <link rel="stylesheet" href="~/Estilos/captcha.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="~/Estilos/signup.css">
+</head>
+
+<body style="overflow-y:hidden">
+    <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <section class="containers forms">
+        <div class="form signup">
+            <div class="form-content">
+                <header>Regístrate</header>
+                <form asp-controller="Inicio" asp-action="Registrarse" method="post">
+                    <div class="field create-password">
+                        <div class="input-field">
+                            <input type="text" placeholder="Crea un Usuario" id="user" asp-for="NombreUsuario" required />
+                        </div>
+                    </div>
+                    <div class="field email-field">
+                        <div class="input-field">
+                            <input type="email" placeholder="Ingresa tu Email" class="email" id="email" required asp-for="Correo" />
+                        </div>
+                    </div>
+                    <div class="field create-password mb-3">
+                        <div class="input-field">
+                            <input type="password" placeholder="Crea una Contraseña" id="password" required asp-for="Clave" />
+                            <i class="bx bx-hide show-hide"></i>
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2 mb-3">
+                        <button class="btn btn-primary" type="submit">Registrate</button>
+                    </div>
+                    @if (TempData["Message"] != null)
+                    {
+                        <div class="alert alert-warning">@TempData["Message"]</div>
+                    }
+
+                    <div class="form-link">
+                        <span>¿Ya tienes una cuenta? <a asp-action="IniciarSesion" class="link login-link">Inicia Sesión</a></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <a style="text-decoration: none" asp-action="Index" asp-controller="TrabajoFinal" class="btn-flotante">Volver al Inicio</a>
+    </section>
+
+    <script src="~/Scripts/signup.js"></script>
+    <script>
+        const eyeIcons = document.querySelectorAll(".show-hide");
+
+        eyeIcons.forEach((eyeIcon) => {
+            eyeIcon.addEventListener("click", () => {
+                const pInput = eyeIcon.parentElement.querySelector("input");
+                if (pInput.type === "password") {
+                    eyeIcon.classList.replace("bx-hide", "bx-show");
+                    return (pInput.type = "text");
+                }
+                eyeIcon.classList.replace("bx-show", "bx-hide");
+                pInput.type = "password";
+            });
+        });
+    </script>
+</body>
+
+</html>
